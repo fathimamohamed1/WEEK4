@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+    <!-- Write your HTML content here -->
+
+    <p>What is the capital city of NewYork?</p>
+    <button class="Wrong-answer">Buffalo</button>
+    <button id="Correct-Answer">Albany</button>
+    <button class="Wrong-answer">Rochester</button>
+
+    <p id="Result"></p>
+<script>
+    // Write your script here
+
+    let correctAnswerbuton= document.querySelector('#Correct-Answer')
+
+    let defaultbuttoncolor=correctAnswerbuton.style.background
+
+    let Result = document.querySelector('#Result')
+
+    let wrongAnswerbuttons =document.querySelectorAll('.Wrong-answer')
+
+
+ //adding an event listener to correct answer button.
+    correctAnswerbuton.addEventListener('click',function (){
+        Result.innerHTML='Correct answer!'
+        correctAnswerbuton.style.background='red'
+    })
+//add an event listener to wrong answer buttons.
+    wrongAnswerbuttons.forEach(function (wrongAnswerbutton){ //loop- repeats for each wrong answer buttons node lists.
+      wrongAnswerbutton.addEventListener('click',function (){
+          Result.innerHTML='Wrong answer, try again.'
+          correctAnswerbuton.style.background=defaultbuttoncolor
+      })
+
+    })
+
+</script>
+
+
+
+
+</body>
+</html>

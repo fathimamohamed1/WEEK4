@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<p>Add to the list</p>
+<input type="text" id="List">
+<button id="Add-list">Add</button>
+
+      <!--Empty unordered lisT-->
+   <ul id="List-items"></ul>
+<button id="Clear">Clear</button>
+
+<p id="Adding-message"></p>
+
+<script>
+    let Addbutton=document.querySelector('#Add-list')
+    let listinput =document.querySelector('#List')
+    let listitem=document.querySelector('#List-items')
+    let Addingmessage=document.querySelector('#Adding-message')
+    let ClearButton=document.querySelector('#Clear')
+
+
+    let elementlist=0 //tracking the number of items
+    let maxelements=10
+    Addbutton.addEventListener('click', function (){
+        if(listinput.length ==0){         //make sure list has text or ignore
+
+            return;
+        }
+
+        if(elementlist>=maxelements){
+            alert('Max element reached no more can be added')
+            return
+        }
+
+        //read text in input
+        let list= listinput.value
+        //create a new li element
+        let newlistitem= document.createElement('li')
+        newlistitem.innerHTML= list
+        listitem.appendChild(newlistitem)
+        //clear the text
+        listinput.value=''
+        if(list.length >50){
+            Addingmessage.innerHTML='Text is too long please use less words'
+        }
+        elementlist++
+    })
+
+    ClearButton.addEventListener('click',function (){
+        listitem.innerHTML=''
+        elementlist=0
+    })
+</script>
+
+</body>
+</html>
